@@ -4,7 +4,7 @@ require 'net/http'
 require 'uri'
 
 class LineNotification
-  TOKEN = ''.freeze
+  TOKEN = ''.freeze # token発行してください
   URL = 'https://notify-api.line.me/api/notify'.freeze
 
   attr_reader :message
@@ -35,4 +35,4 @@ class LineNotification
   end
 end
 
-LineNotification.send('Line message sent by okubo')
+LineNotification.send('Line message sent by okubo.')

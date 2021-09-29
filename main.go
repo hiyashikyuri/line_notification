@@ -14,11 +14,10 @@ type LineNotification struct {
 }
 
 func (line LineNotification) send() {
-	token := ""
+	token := "" // token発行して追加してください
 	uri := "https://notify-api.line.me/api/notify"
 	data := url.Values{}
 	data.Set("message", line.Message)
-	fmt.Println(line.Message)
 
 	client := &http.Client{}
 
@@ -35,13 +34,11 @@ func (line LineNotification) send() {
 
 	defer func() {
 		err := resp.Body.Close()
-		fmt.Print("sentinel6")
 		if err != nil {
-			fmt.Println(err)
-			panic(err)
+			log.Fatal(err)
 		}
 	}()
-	fmt.Print(line.Message)
+	fmt.Print("Line message was sent")
 }
 
 func main() {
